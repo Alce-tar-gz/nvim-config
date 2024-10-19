@@ -7,9 +7,10 @@ This is my own configuration of neovim
 - QoL Improvements (Noice, Which-key)
 - A Home screen (Alpha)
 # Installation
-
-> sh -c "$(curl -fsSL https://raw.githubusercontent.com/Alce-tar-gz/nvim-config/refs/heads/main/setup.sh)"
-
+*This works on Linux, BSD and macOS* :grin:
+`
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Alce-tar-gz/nvim-config/refs/heads/main/setup.sh)"
+`
 
 
 
