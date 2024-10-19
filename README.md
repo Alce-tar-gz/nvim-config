@@ -9,9 +9,9 @@ This is my own configuration of neovim
 # Installation
 *This works on Linux, BSD and macOS* :grin:   
 
-`
+```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Alce-tar-gz/nvim-config/refs/heads/main/setup.sh)"
-`
+```
 
 
 
