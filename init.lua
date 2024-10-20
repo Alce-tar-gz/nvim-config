@@ -127,3 +127,6 @@ vim.api.nvim_set_keymap("n", "<leader>fh",
 vim.api.nvim_set_keymap("n", "<leader>fr",
   [[<cmd>lua require('telescope').extensions.recent_files.pick()<CR>]],
   {noremap = true, silent = true})
+
+vim.opt.termguicolors = true
+require("bufferline").setup{}
