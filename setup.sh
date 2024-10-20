@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/sh
 mv $HOME/.config/nvim $HOME/.config/nvim-backup
 git clone https://github.com/Alce-tar-gz/nvim-config.git $HOME/.config/nvim
 echo "All done!"
