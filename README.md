@@ -6,7 +6,6 @@ This is my own configuration of neovim
 - Nordic Theme (Like Nord, but darker and uses Aurora more than Frost)
 - QoL Improvements (Noice, Which-key, Lualine, Bufferline)
 - A Home screen (Alpha)
-- Stops your bad habits (Hardtime)
 # Installation
 *This works on Linux, BSD and macOS* :grin:   
 
