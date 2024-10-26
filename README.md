@@ -7,11 +7,9 @@ This is my own configuration of neovim
 - QoL Improvements (Noice, Which-key, Lualine, Bufferline)
 - A Home screen (Alpha)
 # Installation
-*This works on Linux, BSD and macOS* :grin:   
-
+Install the latest Release or Pre-Release on macOS, Linux or BSD
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Alce-tar-gz/nvim-config/refs/heads/main/setup.sh)"
 ```
-
-
+If you want a specific release, download the `setup.sh` script on the release page and run it
 
