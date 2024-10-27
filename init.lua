@@ -28,6 +28,9 @@ vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
+vim.cmd("set wrap")
+vim.cmd("set linebreak")
+vim.cmd("set nolist")
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
@@ -101,6 +104,16 @@ require("lazy").setup({
 };
 {"smartpde/telescope-recent-files"};
 {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'};
+{
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    }
+};
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
@@ -122,6 +135,8 @@ vim.api.nvim_set_keymap("n", "<leader>fh",
 vim.api.nvim_set_keymap("n", "<leader>fr",
   [[<cmd>lua require('telescope').extensions.recent_files.pick()<CR>]],
   {noremap = true, silent = true})
+
+vim.cmd("nnoremap <leader>ft :Neotree toggle<CR>")
 
 vim.opt.termguicolors = true
 require("bufferline").setup{}
