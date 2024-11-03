@@ -68,6 +68,7 @@ require("lazy").setup({
     dependencies = { 'echasnovski/mini.icons' },
     config = function ()
         require'alpha'.setup(require'alpha.themes.dashboard'.config)
+        require "alpha-config"
     end
 };
 {
@@ -114,6 +115,8 @@ require("lazy").setup({
       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     }
 };
+{ 'echasnovski/mini.completion', version = false };
+
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
@@ -137,6 +140,9 @@ vim.api.nvim_set_keymap("n", "<leader>fr",
   {noremap = true, silent = true})
 
 vim.cmd("nnoremap <leader>ft :Neotree toggle<CR>")
+vim.cmd("nnoremap <leader>p :Lazy<CR>")
+
 
 vim.opt.termguicolors = true
 require("bufferline").setup{}
+require('mini.completion').setup()
