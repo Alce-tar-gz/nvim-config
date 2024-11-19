@@ -116,7 +116,9 @@ require("lazy").setup({
     }
 };
 { 'echasnovski/mini.completion', version = false };
-
+{ "rafamadriz/friendly-snippets" };
+{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} };
+{ "numToStr/FTerm.nvim" };
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
@@ -130,6 +132,7 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find f
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 
+vim.api.nvim_create_user_command('NeotreeToggle', 'Neotree toggle', {})
 -- Load extension.
 require("telescope").load_extension("recent_files")
 vim.api.nvim_set_keymap("n", "<leader>fh",
@@ -138,11 +141,10 @@ vim.api.nvim_set_keymap("n", "<leader>fh",
 vim.api.nvim_set_keymap("n", "<leader>fr",
   [[<cmd>lua require('telescope').extensions.recent_files.pick()<CR>]],
   {noremap = true, silent = true})
-
-vim.cmd("nnoremap <leader>ft :Neotree toggle<CR>")
-vim.cmd("nnoremap <leader>p :Lazy<CR>")
-
+vim.keymap.set('n', '<leader>ft', vim.cmd.NeotreeToggle)
+vim.keymap.set('n', '<leader>p', vim.cmd.Lazy)
 
 vim.opt.termguicolors = true
 require("bufferline").setup{}
 require('mini.completion').setup()
+vim.keymap.set('n', '<leader>t', '<CMD>lua require("FTerm").toggle()<CR>')
