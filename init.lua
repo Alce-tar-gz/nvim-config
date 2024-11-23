@@ -1,5 +1,4 @@
--- Bootstrap lazy.nvim
--- n
+-- Bootstrap lazy.nvim 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -117,7 +116,7 @@ require("lazy").setup({
 };
 { 'echasnovski/mini.completion', version = false };
 { "rafamadriz/friendly-snippets" };
-{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} };
+{ "lukas-reineke/indent-blankline.nvim", main = "ibl" };
 { "numToStr/FTerm.nvim" };
   },
   -- Configure any other settings here. See the documentation for more details.
@@ -148,3 +147,15 @@ vim.opt.termguicolors = true
 require("bufferline").setup{}
 require('mini.completion').setup()
 vim.keymap.set('n', '<leader>t', '<CMD>lua require("FTerm").toggle()<CR>')
+local highlight = {
+    "CursorColumn",
+    "Whitespace",
+}
+require("ibl").setup {
+    indent = { highlight = highlight, char = "" },
+    whitespace = {
+        highlight = highlight,
+        remove_blankline_trail = false,
+    },
+    scope = { enabled = false },
+}
