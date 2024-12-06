@@ -102,7 +102,6 @@ require("lazy").setup({
     },
   },
 };
-{"smartpde/telescope-recent-files"};
 {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'};
 {
     "nvim-neo-tree/neo-tree.nvim",
@@ -116,7 +115,6 @@ require("lazy").setup({
 };
 { 'echasnovski/mini.completion', version = false };
 { "rafamadriz/friendly-snippets" };
-{ "lukas-reineke/indent-blankline.nvim", main = "ibl" };
 { "numToStr/FTerm.nvim" };
   },
   -- Configure any other settings here. See the documentation for more details.
@@ -130,18 +128,14 @@ local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-
+vim.cmd("inoremap { {}<Esc>ha")
+vim.cmd("inoremap ( ()<Esc>ha")
+vim.cmd("inoremap [ []<Esc>ha")
+vim.cmd('inoremap " ""<Esc>ha')
+vim.cmd("inoremap ' ''<Esc>ha")
+vim.cmd("inoremap ` ``<Esc>ha")
 vim.api.nvim_create_user_command('NeotreeToggle', 'Neotree toggle', {})
 -- Load extension.
-require("telescope").load_extension("recent_files")
-vim.api.nvim_set_keymap("n", "<leader>fh",
-  [[<cmd>lua require('telescope').extensions.recent_files.pick()<CR>]],
-  {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<leader>fr",
-  [[<cmd>lua require('telescope').extensions.recent_files.pick()<CR>]],
-  {noremap = true, silent = true})
-vim.keymap.set('n', '<leader>ft', vim.cmd.NeotreeToggle)
-vim.keymap.set('n', '<leader>p', vim.cmd.Lazy)
 
 vim.opt.termguicolors = true
 require("bufferline").setup{}
@@ -151,11 +145,5 @@ local highlight = {
     "CursorColumn",
     "Whitespace",
 }
-require("ibl").setup {
-    indent = { highlight = highlight, char = "" },
-    whitespace = {
-        highlight = highlight,
-        remove_blankline_trail = false,
-    },
-    scope = { enabled = false },
-}
+require("mini.indentscope").setup()
+require("mini.animate").setup()
